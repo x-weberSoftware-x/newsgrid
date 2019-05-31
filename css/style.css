@@ -1,0 +1,377 @@
+/* VARIABLES */
+/* ********* */
+
+/* can be used anywhere */
+:root {
+  --primary-color: #c72727;
+  --secondary-color: #f99500;
+  --light-color: #f3f3f3;
+  --dark-color: #333;
+
+  --max-width: 1100px;
+}
+
+/* can only be used on elements with the sports class */
+.category {
+  --sports-color: #f99500;
+  --ent-color: #a66bbe;
+  --tech-color: #009cff;
+}
+
+/* CORE STYLING */
+/* ************ */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--light-color);
+  font-family: 'Lato', sans-serif;
+  line-height: 1.5;
+}
+
+a {
+  color: var(--dark-color);
+  text-decoration: none;
+}
+
+p {
+  margin: 0.5rem 0;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Staatliches', cursive;
+  line-height: 1.3;
+  margin-bottom: 0.55rem;
+}
+
+/* UTILITY */
+/* ******* */
+
+.container {
+  margin: auto;
+  max-width: var(--max-width);
+  overflow: hidden;
+  padding: 0 2rem;
+}
+
+.category {
+  border-radius: 15px;
+  color: #fff;
+  display: inline-block;
+  font-size: 0.55rem;
+  margin-bottom: 0.5rem;
+  padding: 0.4rem 0.6rem;
+  text-transform: uppercase;
+}
+
+.category-sports {
+  background: var(--sports-color);
+}
+.category-ent {
+  background: var(--ent-color);
+}
+.category-tech {
+  background: var(--tech-color);
+}
+
+.btn {
+  background: var(--dark-color);
+  border: none;
+  color: #fff;
+  display: inline-block;
+  padding: 0.5rem 1.5rem;
+}
+
+.btn-light {
+  background: var(--light-color);
+}
+.btn-primary {
+  background: var(--primary-color);
+}
+.btn-secondary {
+  background: var(--secondary-color);
+}
+
+.btn:hover {
+  opacity: 0.8;
+}
+
+.btn-block {
+  display: block;
+  text-align: center;
+  width: 100%;
+}
+
+/* container for each article */
+.card {
+  background: #fff;
+  padding: 1rem;
+}
+
+.bg-dark {
+  background: var(--dark-color);
+  color: #fff;
+}
+.bg-primary {
+  background: var(--primary-color);
+  color: #fff;
+}
+.bg-secondary {
+  background: var(--secondary-color);
+  color: #fff;
+}
+
+.bg-dark h1,
+.bg-dark h2,
+.bg-dark h3,
+.bg-dark a,
+.bg-primary h1,
+.bg-primary h2,
+.bg-primary h3,
+.bg-primary a,
+.bg-secondary h1,
+.bg-secondary h2,
+.bg-secondary h3,
+.bg-secondary a {
+  color: #fff;
+}
+
+/* padding top bottom */
+.py-1 {
+  padding: 1.5rem 0;
+}
+.py-2 {
+  padding: 2rem 0;
+}
+.py-3 {
+  padding: 3rem 0;
+}
+
+/* padding all the way around */
+.p-1 {
+  padding: 1.5rem;
+}
+.p-2 {
+  padding: 2rem;
+}
+.p-3 {
+  padding: 3rem;
+}
+
+.l-heading {
+  font-size: 3rem;
+}
+
+.list li {
+  border-bottom: #555 dotted 1px;
+  padding: 0.5rem 0;
+  width: 90%;
+}
+
+.list li a:hover {
+  color: var(--primary-color) !important;
+}
+
+/* inner page grid container */
+.page-container {
+  display: grid;
+  grid-template-columns: 5fr 2fr;
+  grid-gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.page-container > *:first-child {
+  grid-row: 1 / span 3;
+}
+
+/* NAVBAR */
+/* ****** */
+
+#main-nav {
+  background: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+#main-nav .container {
+  /* make logo social icons and ul grid items */
+  display: grid;
+  grid-template-columns: 6fr 3fr 2fr;
+  padding: 1rem;
+  align-items: center;
+}
+
+#main-nav .logo {
+  width: 180px;
+}
+
+#main-nav ul {
+  /* self is do self not parent too */
+  justify-self: end;
+  /* make ul flex instead of grid */
+  display: flex;
+}
+
+#main-nav ul li a {
+  font-weight: bold;
+  padding: 0.75rem;
+}
+
+#main-nav ul li a.current {
+  background: var(--primary-color);
+  color: #fff;
+}
+
+#main-nav ul li a:hover {
+  background: var(--light-color);
+  color: var(--dark-color);
+}
+
+#main-nav .social {
+  justify-self: center;
+}
+
+#main-nav .social i {
+  color: #777;
+  margin-right: 0.5rem;
+}
+
+/* SHOWCASE */
+/* ******** */
+
+#showcase {
+  color: #fff;
+  background: var(--dark-color);
+  padding: 2rem;
+  /* need this so we can position the before absolute */
+  position: relative;
+}
+
+/* useing before so we can set this up to see through the image to the dark background
+   giving an overlay effect */
+#showcase::before {
+  content: '';
+  background: url(../img/featured.jpg) no-repeat center center/cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0.4;
+}
+
+#showcase .showcase-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+}
+
+/* grab the text and put it on top of image so text is clear */
+#showcase .showcase-content {
+  z-index: 1;
+}
+
+#showcase .showcase-content p {
+  margin-bottom: 1rem;
+}
+
+/* HOME ARTICLES */
+/* ************* */
+
+#home-articles .articles-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1rem;
+}
+
+/* * means this can be any element the > measn has to be direct child of articles-container */
+#home-articles .articles-container > *:first-child,
+#home-articles .articles-container > *:last-child {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1rem;
+  /* make it span two columns */
+  grid-column: 1 / span 2;
+  align-items: center;
+}
+
+#home-articles .articles-container > *:last-child {
+  /* change where this artic;es spans */
+  grid-column: 2 / span 2;
+}
+
+/* ARTICLE */
+
+#article .meta {
+  background: #eee;
+  display: flex;
+  /* put full amount of space between them */
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+}
+
+#article .meta .category {
+  margin-top: 0.4rem;
+}
+
+/* FOOTER */
+/* ****** */
+
+#main-footer {
+  background: var(--dark-color);
+  color: #fff;
+}
+
+#main-footer img {
+  width: 150px;
+}
+
+#main-footer a {
+  color: #fff;
+}
+
+#main-footer .footer-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1.5rem;
+}
+
+#main-footer .footer-container > *:last-child {
+  background: #444;
+  grid-column: 1 / span 4;
+  font-size: 0.75rem;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+/* get thee input type of email */
+#main-footer .footer-container input[type='email'] {
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  width: 90%;
+}
+
+#main-footer .footer-container input[type='submit'] {
+  width: 90%;
+}
